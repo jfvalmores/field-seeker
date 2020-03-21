@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import {
   Form,
   Button,
@@ -6,24 +6,11 @@ import {
 } from 'react-bootstrap';
 
 export default function Settings(props) {
-  const lastElem = useRef();
-
-  const handleFocus = (e) => {
-    e.preventDefault();
-    console.log(lastElem.current);
-    if (lastElem.current) {
-      lastElem.current.focus();
-    }
-  }
-
   return (
     <Form>
       <Form.Group>
-        <Button onClick={handleFocus}>Focus on last</Button>
-      </Form.Group>
-      <Form.Group>
         <Form.Label>Account Type</Form.Label>
-        <Form.Control id="" as="select">
+        <Form.Control id="faccount_type" as="select">
           <option value="0">Regular</option>
           <option value="1">Special</option>
           <option value="2">VIP</option>
@@ -108,7 +95,6 @@ export default function Settings(props) {
       </Form.Group>
       <Form.Group>
         <Form.Check
-          ref={lastElem}
           type="switch"
           id="fview_game_credits_flag"
           label="View Game Credits"
